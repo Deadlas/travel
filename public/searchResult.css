@@ -48,3 +48,15 @@
     font-size: large;
     text-align:right;
 }
+.search-panel{
+    width: 100%;
+    display: flex;
+    background-color: rgb(255, 166, 0);
+    flex-direction: column;
+    padding: 2%;
+}
+
+.form-div{
+    width: 80%;
+    margin-left: 10%;
+}

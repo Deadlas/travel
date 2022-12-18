@@ -97,11 +97,6 @@
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
 
-    <style>
-        input.form-input {
-            height: 45px;
-        }
-    </style>
 </head>
 
 <body>
@@ -155,7 +150,7 @@
 
     <!--packages start-->
     <section id="pack" class="packages">
-        <div class="container">
+        <div class="container-fluid" style="width: 80%;">
             <div class="gallary-header text-center">
                 <h2>
                     special packages
@@ -165,10 +160,88 @@
                 </p>
             </div>
             <!--/.gallery-header-->
-            <div class="packages-content">
+            <div class="packages-content">              
                 <div class="row">
-                    <div class="col-md-2"></div>
-                    <div class="col-md-10">
+                    <div class="col-md-3">
+                        <div class="search-panel">
+                            <h1>Search</h1>
+                            <div class="form-group form-div">
+                                <label for="hotel">Destination</label>
+                                <input class="form-control search-loc form-input" id="hotel"
+                                    list="browsers" autocomplete="off">
+                                <input type="hidden" name="dest_ids" class="hotel-input">
+                                <input type="hidden" name="search_type" class="hotel-input">
+                            </div>
+                            <div class="form-group form-div">
+                                <label for="in_date">check in</label>
+                                <input type="date" name="arrival_date" id="in_date" class="form-control form-input"
+                                    >
+                            </div>
+                            <div class="form-group form-div">
+                                <label for="out_date">check out</label>
+                                <input type="date" name="departure_date" id="out_date" class="form-control form-input"
+                                        >
+                            </div>
+                            <div class="form-group form-div">
+                                <label for="adts">Adults</label>
+                                <input class="form-control form-input" 
+                                    name="guest_qty" id="adts" >
+                            </div>
+                            <div class="form-group form-div">
+                                <label for="chd">Children</label>
+                                <input class="form-control form-input" 
+                                    name="children_qty" id="chd" >
+                            </div>
+                            <div class="form-group form-div">
+                                <label for="rooms">Rooms</label>
+                                <input class="form-control form-input" 
+                                    name="room_qty" id="rooms">
+                            </div>
+                            <input type="hidden" name="search_id" value='0'>
+                            <datalist id="browsers">
+                            </datalist>
+                        
+                            <option value="San Francisco" class="999302 template-option" style="display: none;" >
+                                <div class="EtzER">
+                                    <div class="DvEpD">
+                                        <div class="second-text">Emirate of Dubai, United Arab Emirates</div>
+                                        <input type="hidden" class="search_type"/>
+                                    </div>
+                                </div>
+                            </option>
+                            <button class="btn btn-lg btn-primary form-btn" type="submit">
+                                Update
+                            </button>
+                        </div>
+                        <hr>
+                        <div>
+                            <h4>Filter by:</h4>
+                        </div>
+                        <hr>
+                        <% scrapped.base_filters.forEach(item=>{%>
+                            <% if(item.id=="price_category") return; %>
+                            <div style="margin: 10px;">
+                                <div class="title">
+                                    <h4><%=item.title%></h4>
+                                </div>
+                                <div class="row" style="font-size: 12px; font-weight: 400;">
+                                    <% item.categories.forEach(ct=>{%>
+                                    <div class="form-check col-md-11">
+                                        <input class="form-check-input" type="checkbox" value="" id="<%=ct.id%>" <% ct.selected&&"checked"%>>
+                                        <label class="form-check-label" for="<%=ct.id%>" style="font-weight:400">
+                                            <%=ct.name%>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <%=ct.count%>
+                                    </div>
+                                    <%  })%>
+                                </div>
+                            </div>
+                            <hr>
+                        <%  })%>
+                    </div>
+                    <div class="col-md-9">
                         <% scrapped.result.forEach(item=>{%>
                             <div class="col-md-12 col-sm-12">
                                 <div class="single-package-item" style="min-height:200px; display: flex; padding: 1%;">

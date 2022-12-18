@@ -98,6 +98,7 @@ const getHotelDetails = (req, res) => {
 			'X-RapidAPI-Host': 'tripadvisor16.p.rapidapi.com'
 		}
 	};
+	
 
 	axios.request(options).then(function (response) {
 		res.json(response.data);
