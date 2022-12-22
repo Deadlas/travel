@@ -50,6 +50,10 @@ const getHotelsFilter = (req, res) => {
 }
 
 const searchHotels = (req, res) => {
+	if(req.query.categories_filter==undefined)
+	{
+		req.query.categories_filter=[];
+	}
 	const options = {
 		method: 'GET',
 		url: 'https://apidojo-booking-v1.p.rapidapi.com/properties/list',
@@ -67,7 +71,8 @@ const searchHotels = (req, res) => {
 		  order_by: 'popularity',
 		  languagecode: 'en-us',
 		  travel_purpose: 'leisure',
-		  search_id:req.query.search_id
+		  search_id:req.query.search_id,
+		  categories_filter:req.query.categories_filter.toString()
 		},
 		headers: {
 		  'X-RapidAPI-Key': 'eb190b2daamshb66f78e68920f4cp1e74c9jsn76bb6cb8725f',
@@ -77,7 +82,7 @@ const searchHotels = (req, res) => {
 	const baseurl = "http://localhost:3030/"
 	axios.request(options).then(function (response) {
 		// res.json({ "scrapped": response.data, "base": baseurl, "params": req.query });
-		res.render("../views/searchResult", { "scrapped": response.data, "base": baseurl, "params": req.query });
+		res.render("../views/searchResult", { "scrapped": response.data, "base": baseurl, "params": req.query, });
 	}).catch(function (error) {
 		// console.error(error);
 	});

@@ -160,58 +160,58 @@
                 </p>
             </div>
             <!--/.gallery-header-->
-            <div class="packages-content">              
+            <div class="packages-content">
                 <div class="row">
                     <div class="col-md-3">
                         <div class="search-panel">
-                            <h1>Search</h1>
-                            <div class="form-group form-div">
-                                <label for="hotel">Destination</label>
-                                <input class="form-control search-loc form-input" id="hotel"
-                                    list="browsers" autocomplete="off">
-                                <input type="hidden" name="dest_ids" class="hotel-input">
-                                <input type="hidden" name="search_type" class="hotel-input">
-                            </div>
-                            <div class="form-group form-div">
-                                <label for="in_date">check in</label>
-                                <input type="date" name="arrival_date" id="in_date" class="form-control form-input"
-                                    >
-                            </div>
-                            <div class="form-group form-div">
-                                <label for="out_date">check out</label>
-                                <input type="date" name="departure_date" id="out_date" class="form-control form-input"
-                                        >
-                            </div>
-                            <div class="form-group form-div">
-                                <label for="adts">Adults</label>
-                                <input class="form-control form-input" 
-                                    name="guest_qty" id="adts" >
-                            </div>
-                            <div class="form-group form-div">
-                                <label for="chd">Children</label>
-                                <input class="form-control form-input" 
-                                    name="children_qty" id="chd" >
-                            </div>
-                            <div class="form-group form-div">
-                                <label for="rooms">Rooms</label>
-                                <input class="form-control form-input" 
-                                    name="room_qty" id="rooms">
-                            </div>
-                            <input type="hidden" name="search_id" value='0'>
-                            <datalist id="browsers">
-                            </datalist>
-                        
-                            <option value="San Francisco" class="999302 template-option" style="display: none;" >
-                                <div class="EtzER">
-                                    <div class="DvEpD">
-                                        <div class="second-text">Emirate of Dubai, United Arab Emirates</div>
-                                        <input type="hidden" class="search_type"/>
-                                    </div>
+                            <form id="searchform">
+                                <h1>Search</h1>
+                                <div class="form-group form-div">
+                                    <label for="hotel">Destination</label>
+                                    <input class="form-control search-loc form-input" id="hotel" list="browsers"
+                                        autocomplete="off" name="place_name" value="<%=params.place_name%>" />
+                                    <input type="hidden" name="dest_ids" class="hotel-input"
+                                        value="<%=params.dest_ids%>" />
+                                    <input type="hidden" name="search_type" class="hotel-input"
+                                        value="<%=params.search_type%>" />
                                 </div>
-                            </option>
-                            <button class="btn btn-lg btn-primary form-btn" type="submit">
-                                Update
-                            </button>
+                                <div class="form-group form-div">
+                                    <label for="in_date">check in</label>
+                                    <input type="date" name="arrival_date" id="in_date" class="form-control form-input"
+                                    value="<%=params.arrival_date%>"/>
+                                </div>
+                                <div class="form-group form-div">
+                                    <label for="out_date">check out</label>
+                                    <input type="date" name="departure_date" id="out_date" class="form-control form-input" value="<%=params.departure_date%>"/>
+                                </div>
+                                <div class="form-group form-div">
+                                    <label for="adts">Adults</label>
+                                    <input class="form-control form-input" name="guest_qty" id="adts" value="<%=params.guest_qty%>">
+                                </div>
+                                <div class="form-group form-div">
+                                    <label for="chd">Children</label>
+                                    <input class="form-control form-input" name="children_qty" id="chd" value="<%=params.children_qty%>">
+                                </div>
+                                <div class="form-group form-div">
+                                    <label for="rooms">Rooms</label>
+                                    <input class="form-control form-input" name="room_qty" id="rooms" value="<%=params.room_qty%>">
+                                </div>
+                                <input type="hidden" name="search_id" value="<%=params.search_id%>">
+                                <datalist id="browsers">
+                                </datalist>
+
+                                <option value="San Francisco" class="999302 template-option" style="display: none;">
+                                    <div class="EtzER">
+                                        <div class="DvEpD">
+                                            <div class="second-text">Emirate of Dubai, United Arab Emirates</div>
+                                            <input type="hidden" class="search_type" />
+                                        </div>
+                                    </div>
+                                </option>
+                                <button class="btn btn-lg btn-primary form-btn" type="submit">
+                                    Update
+                                </button>
+                            </form>
                         </div>
                         <hr>
                         <div>
@@ -220,25 +220,25 @@
                         <hr>
                         <% scrapped.base_filters.forEach(item=>{%>
                             <% if(item.id=="price_category") return; %>
-                            <div style="margin: 10px;">
-                                <div class="title">
+                                <div style="margin: 10px;">
+                                    <div class="title">
                                     <h4><%=item.title%></h4>
-                                </div>
-                                <div class="row" style="font-size: 12px; font-weight: 400;">
-                                    <% item.categories.forEach(ct=>{%>
-                                    <div class="form-check col-md-11">
-                                        <input class="form-check-input" type="checkbox" value="" id="<%=ct.id%>" <% ct.selected&&"checked"%>>
+                                    </div>
+                                    <div class="row" style="font-size: 12px; font-weight: 400;">
+                                        <% item.categories.forEach(ct=>{%>
+                                            <div class="form-check col-md-11">
+                                        <input class="form-check-input filter_check" type="checkbox" name="categories_filter[]"  value="<%=ct.id%>" form="searchform"  <% if(ct.selected==1){%>checked<%}%>>
                                         <label class="form-check-label" for="<%=ct.id%>" style="font-weight:400">
-                                            <%=ct.name%>
-                                        </label>
-                                    </div>
-                                    <div class="col-md-1">
-                                        <%=ct.count%>
-                                    </div>
+                                                    <%=ct.name%>
+                                                </label>
+                                            </div>
+                                            <div class="col-md-1">
+                                                <%=ct.count%>
+                                            </div>
                                     <%  })%>
+                                    </div>
                                 </div>
-                            </div>
-                            <hr>
+                                <hr>
                         <%  })%>
                     </div>
                     <div class="col-md-9">
@@ -252,10 +252,10 @@
                                         <div class="col-md-8">
                                             <div class="col-md-12 property-name" id="<%=item.hotel_id%>"><%=item.hotel_name%>
                                                 <div class="rating" style="color: rgb(228, 218, 33); font-size: 18px;">
-                                                    <%for(var i=0;i<item.class;i++){%>
-                                                        <i class="fa fa-star"></i>
-                                                    <%}%>
-                                                </div>
+                                                        <%for(var i=0;i<item.class;i++){%>
+                                                            <i class="fa fa-star"></i>
+                                                            <%}%>
+                                                    </div>
                                             </div>
                                             <div class="col-md-12 address"><a><%=item.address%>&nbsp;<%=item.distance%><mark>km</mark> away from city center</a></div>
                                         </div>
@@ -263,7 +263,7 @@
                                             <div class="col-md-9">
                                                 <div class="score-word"><%=item.review_score_word%></div>
                                                 <div><%=item.review_nr%>&nbsp;reviews..</div>
-                                            </div>
+                                                </div>
                                             <div class="col-md-3 review-score"><%=item.review_score%></div>
                                         </div>
                                         <div class="col-md-8">
@@ -271,26 +271,26 @@
                                             <div>deal event</div>
                                             <% if(item.hotel_include_breakfast=='1'){%>
                                                 <div class="facility-info">Breakfast&Dinner included</div>
-                                            <%}%>
+                                                <%}%>
                                             <% if(item.is_free_cancellable=='1'){%>
                                                 <div class="facility-info">FREE cancellation • No prepayment needed</div>
                                                 <div class="facility-info-exp">You can cancel later, so lock in this great price today!</div>
-                                            <%}%>
+                                                        <%}%>
                                             <% if(item.has_swimming_pool=='1'){%>
-                                                <div class="facility-info">Awesome Swimming Pool</div>
-                                            <%}%>
+                                                                <div class="facility-info">Awesome Swimming Pool</div>
+                                                                <%}%>
                                             <% if(item.has_fee_parking=='1'){%>
-                                                <div class="facility-info">Free Parking</div>
-                                            <%}%>
-                                            <% if(item.urgency_message!=undefined){%>
+                                                                        <div class="facility-info">Free Parking</div>
+                                                                        <%}%>
+                                                                            <% if(item.urgency_message!=undefined){%>
                                             <div class="urgent-msg"><%=item.urgency_message.replace("Booking.com","our site")%></div>
-                                            <%}%>
+                                                                                <%}%>
                                         </div>
                                         <div class="col-md-4">
                                             <div>
                                                 <% if(item.price_breakdown.has_fine_print_charges==1){%>
                                                     <div class="crossed-price"><span class="cur-code"><%=item.price_breakdown.currency%> &nbsp;&nbsp;</span><%=item.price_breakdown.all_inclusive_price%></div>
-                                                <%}%>
+                                                    <%}%>
                                                 <div class="price"><span class="cur-code"><%=item.price_breakdown.currency%> &nbsp;&nbsp;</span><%=item.price_breakdown.gross_price%></div>
                                             </div>
                                         </div>
@@ -299,7 +299,7 @@
                                 </div>
                                 <!--/.single-package-item-->
                             </div>
-                        <%})%>
+                            <%})%>
                     </div>
                     <div class="col-md-10">
                         <button class="btn btn-primary form-btn btn-lg pull-left " type="submit"
@@ -415,9 +415,48 @@
     <!-- footer-copyright end -->
 
     <script>
-
         $(document).ready(function () {
             $("div.item:first-child").addClass("active");
+            $('.search-loc').keydown(function () {
+
+                let category = $(this).attr('id');
+                let query = $(this).val();
+                if (query.length % 3 == 0 && query.length != 0) {
+                    console.log("scraping start");
+                    $.ajax({
+                        type: "GET",
+                        url: "/api/" + category + "/searchlocation/",
+                        data: { query },
+                        crossDomain: true,
+                        success: function (result) {
+                            console.log(result);
+                            $('#browsers').empty();
+                            result.forEach(ele => {
+                                let newOp = $("option.template-option").clone();
+                                newOp.removeClass("template-option");
+                                newOp.val(ele['name']);
+                                newOp.attr('class', ele['dest_id']);
+                                newOp.find('div.second-text').text(ele['label']);
+                                newOp.find('input.search_type').val(ele['dest_type']);
+                                // $("#browsers").append(newel);
+                                newOp.appendTo("#browsers");
+                            });
+                        },
+                        error: function (err) {
+                            console.log(err);
+                        }
+                    });
+                }
+
+            });
+            $(".search-loc").change(function () {
+                let value = $("#browsers").find('option[value="' + $(this).val() + '"]').attr("class");
+                let s_type = $("#browsers").find('option[value="' + $(this).val() + '"] input[type=hidden]').val();
+                $(this).siblings('input[name="dest_ids"]').val(value);
+                $(this).siblings('input[name="search_type"]').val(s_type);
+                console.log($(this).siblings('input[name="dest_ids"]').val());
+                console.log($(this).siblings('input[name="search_type"]').val());
+            })
         })
     </script>
 

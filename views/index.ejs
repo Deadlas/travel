@@ -58,11 +58,11 @@
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
 
-        <style>
-            input.form-input{
-                height: 45px;
-            }
-        </style>
+    <style>
+        input.form-input {
+            height: 45px;
+        }
+    </style>
 </head>
 
 <body>
@@ -371,101 +371,100 @@
                                 <div role="tabpanel" class="tab-pane fade in active" id="hotels">
                                     <div class="tab-para">
                                         <form method="GET" action="/api/hotel/searchHotels">
-                                        <div class="row">
-                                            <div class="col-lg-4 col-md-4 col-sm-12">
-                                                <div class="single-tab-select-box">
+                                            <div class="row">
+                                                <div class="col-lg-4 col-md-4 col-sm-12">
+                                                    <div class="single-tab-select-box">
 
-                                                    <h2>destination</h2>
+                                                        <h2>destination</h2>
 
-                                                    <div class="">
-                                                        <input class="form-control search-loc form-input" id="hotel"
-                                                            list="browsers" autocomplete="off">
-                                                        <input type="hidden" name="dest_ids" class="hotel-input">
-                                                        <input type="hidden" name="search_type" class="hotel-input">
-                                                    </div><!-- /.travel-select-icon -->
+                                                        <div class="">
+                                                            <input class="form-control search-loc form-input" id="hotel"
+                                                                list="browsers" autocomplete="off" name="place_name">
+                                                            <input type="hidden" name="dest_ids" class="hotel-input">
+                                                            <input type="hidden" name="search_type" class="hotel-input">
+                                                        </div><!-- /.travel-select-icon -->
 
 
+                                                    </div>
+                                                    <!--/.single-tab-select-box-->
                                                 </div>
-                                                <!--/.single-tab-select-box-->
-                                            </div>
-                                            <!--/.col-->
+                                                <!--/.col-->
 
-                                            <div class="col-lg-2 col-md-3 col-sm-4">
-                                                <div class="single-tab-select-box">
-                                                    <h2>check in</h2>
-                                                    <div class="travel-check-icon">
-                                                            <input type="date" name="arrival_date" class="form-control form-input"
-                                                                >
-                                                    </div><!-- /.travel-check-icon -->
+                                                <div class="col-lg-2 col-md-3 col-sm-4">
+                                                    <div class="single-tab-select-box">
+                                                        <h2>check in</h2>
+                                                        <div class="travel-check-icon">
+                                                            <input type="date" name="arrival_date"
+                                                                class="form-control form-input">
+                                                        </div><!-- /.travel-check-icon -->
+                                                    </div>
+                                                    <!--/.single-tab-select-box-->
                                                 </div>
-                                                <!--/.single-tab-select-box-->
-                                            </div>
-                                            <!--/.col-->
+                                                <!--/.col-->
 
-                                            <div class="col-lg-2 col-md-3 col-sm-4">
-                                                <div class="single-tab-select-box">
-                                                    <h2>check out</h2>
-                                                    <div class="travel-check-icon">
-                                                            <input type="date" name="departure_date" class="form-control form-input"
-                                                                 >
-                                                    </div><!-- /.travel-check-icon -->
+                                                <div class="col-lg-2 col-md-3 col-sm-4">
+                                                    <div class="single-tab-select-box">
+                                                        <h2>check out</h2>
+                                                        <div class="travel-check-icon">
+                                                            <input type="date" name="departure_date"
+                                                                class="form-control form-input">
+                                                        </div><!-- /.travel-check-icon -->
+                                                    </div>
+                                                    <!--/.single-tab-select-box-->
                                                 </div>
-                                                <!--/.single-tab-select-box-->
-                                            </div>
-                                            <!--/.col-->
+                                                <!--/.col-->
 
-                                            <div class="col-lg-2 col-md-1 col-sm-4">
-                                                <div class="single-tab-select-box">
-                                                    <h2>Adults</h2>
-                                                    <div class="">
-                                                        <input class="form-control form-input" 
-                                                            name="guest_qty" >
+                                                <div class="col-lg-2 col-md-1 col-sm-4">
+                                                    <div class="single-tab-select-box">
+                                                        <h2>Adults</h2>
+                                                        <div class="">
+                                                            <input class="form-control form-input" name="guest_qty">
+                                                        </div>
+                                                    </div>
+                                                    <!--/.single-tab-select-box-->
+                                                </div>
+                                                <!--/.col-->
+
+                                                <div class="col-lg-2 col-md-1 col-sm-4">
+                                                    <div class="single-tab-select-box">
+                                                        <h2>Children</h2>
+                                                        <div class="">
+                                                            <input class="form-control form-input" name="children_qty">
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <!--/.single-tab-select-box-->
-                                            </div>
-                                            <!--/.col-->
-
-                                            <div class="col-lg-2 col-md-1 col-sm-4">
-                                                <div class="single-tab-select-box">
-                                                    <h2>Children</h2>
-                                                    <div class="">
-                                                        <input class="form-control form-input" 
-                                                            name="children_qty" >
+                                                <div class="col-lg-2 col-md-1 col-sm-4">
+                                                    <div class="single-tab-select-box">
+                                                        <h2>Rooms</h2>
+                                                        <div class="">
+                                                            <input class="form-control form-input" name="room_qty">
+                                                        </div>
                                                     </div>
                                                 </div>
+                                                <!--/.col-->
                                             </div>
-                                            <div class="col-lg-2 col-md-1 col-sm-4">
-                                                <div class="single-tab-select-box">
-                                                    <h2>Rooms</h2>
-                                                    <div class="">
-                                                        <input class="form-control form-input" 
-                                                            name="room_qty" >
+                                            <input type="hidden" name="search_id" value='0'>
+                                            <input type="hidden" name="categories_filter[]" value=''>
+
+                                            <!--/.row-->
+
+                                            <div class="row">
+                                                <div class="col-sm-5"></div>
+                                                <!--/.col-->
+                                                <div class="clo-sm-7">
+                                                    <div class="about-btn travel-mrt-0 pull-right">
+                                                        <button class="about-view travel-btn" type="submit">
+                                                            search
+                                                        </button>
+                                                        <!--/.travel-btn-->
                                                     </div>
+                                                    <!--/.about-btn-->
                                                 </div>
-                                            </div>
-                                            <!--/.col-->
-                                        </div>
-                                        <input type="hidden" name="search_id" value='0'>
-                                        <!--/.row-->
+                                                <!--/.col-->
 
-                                        <div class="row">
-                                            <div class="col-sm-5"></div>
-                                            <!--/.col-->
-                                            <div class="clo-sm-7">
-                                                <div class="about-btn travel-mrt-0 pull-right">
-                                                    <button class="about-view travel-btn" type="submit">
-                                                        search
-                                                    </button>
-                                                    <!--/.travel-btn-->
-                                                </div>
-                                                <!--/.about-btn-->
                                             </div>
-                                            <!--/.col-->
-
-                                        </div>
-                                        <!--/.row-->
-                                    </form>
+                                            <!--/.row-->
+                                        </form>
                                     </div>
                                     <!--/.tab-para-->
 
@@ -1353,14 +1352,14 @@
     <datalist id="browsers">
     </datalist>
 
-    <option value="San Francisco" class="999302 template-option" >
-		<div class="EtzER">
-			<div class="DvEpD">
-				<div class="second-text">Emirate of Dubai, United Arab Emirates</div>
-                <input type="hidden" class="search_type"/>
-			</div>
-		</div>
-	</option>
+    <option value="San Francisco" class="999302 template-option">
+        <div class="EtzER">
+            <div class="DvEpD">
+                <div class="second-text">Emirate of Dubai, United Arab Emirates</div>
+                <input type="hidden" class="search_type" />
+            </div>
+        </div>
+    </option>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
@@ -1401,48 +1400,47 @@
 
     <script>
         $(document).ready(function () {
-		$('.search-loc').keydown(function () {
-            
-			let category = $(this).attr('id');
-			let query = $(this).val();
-			if (query.length%3==0&&query.length!=0) {
-                console.log("scraping start");
-				$.ajax({
-					type: "GET",
-					url: "/api/" + category + "/searchlocation/",
-					data: { query },
-					crossDomain: true,
-					success: function (result) {
-                        console.log(result);
-						$('#browsers').empty();
-						result.forEach(ele => {
-							let newOp=$("option.template-option").clone();
-							newOp.removeClass("template-option");
-							newOp.val(ele['name']);
-							newOp.attr('class',ele['dest_id']);
-							newOp.find('div.second-text').text(ele['label']);
-                            newOp.find('input.search_type').val(ele['dest_type']);
-							// $("#browsers").append(newel);
-							newOp.appendTo("#browsers");
-						});
-					},
-					error: function (err) {
-						console.log(err);
-					}
-				});
-			}
+            $('.search-loc').keydown(function () {
 
-		});
-		$(".search-loc").change(function()
-		{
-			let value=$("#browsers").find('option[value="'+$(this).val()+'"]').attr("class");
-            let s_type=$("#browsers").find('option[value="'+$(this).val()+'"] input[type=hidden]').val();
-			$(this).siblings('input[name="dest_ids"]').val(value);
-			$(this).siblings('input[name="search_type"]').val(s_type);
-            console.log($(this).siblings('input[name="dest_ids"]').val());
-            console.log($(this).siblings('input[name="search_type"]').val());
-		})
-	})
+                let category = $(this).attr('id');
+                let query = $(this).val();
+                if (query.length % 3 == 0 && query.length != 0) {
+                    console.log("scraping start");
+                    $.ajax({
+                        type: "GET",
+                        url: "/api/" + category + "/searchlocation/",
+                        data: { query },
+                        crossDomain: true,
+                        success: function (result) {
+                            console.log(result);
+                            $('#browsers').empty();
+                            result.forEach(ele => {
+                                let newOp = $("option.template-option").clone();
+                                newOp.removeClass("template-option");
+                                newOp.val(ele['name']);
+                                newOp.attr('class', ele['dest_id']);
+                                newOp.find('div.second-text').text(ele['label']);
+                                newOp.find('input.search_type').val(ele['dest_type']);
+                                // $("#browsers").append(newel);
+                                newOp.appendTo("#browsers");
+                            });
+                        },
+                        error: function (err) {
+                            console.log(err);
+                        }
+                    });
+                }
+
+            });
+            $(".search-loc").change(function () {
+                let value = $("#browsers").find('option[value="' + $(this).val() + '"]').attr("class");
+                let s_type = $("#browsers").find('option[value="' + $(this).val() + '"] input[type=hidden]').val();
+                $(this).siblings('input[name="dest_ids"]').val(value);
+                $(this).siblings('input[name="search_type"]').val(s_type);
+                console.log($(this).siblings('input[name="dest_ids"]').val());
+                console.log($(this).siblings('input[name="search_type"]').val());
+            })
+        })
     </script>
 
     <!-- Template Javascript -->
