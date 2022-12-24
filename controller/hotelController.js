@@ -80,8 +80,8 @@ const searchHotels = (req, res) => {
 	};
 	const baseurl = "http://localhost:3030/"
 	axios.request(options).then(function (response) {
-		res.json({ "scrapped": response.data, "base": baseurl, "params": req.query });
-		// res.render("../views/searchResult", { "scrapped": response.data, "base": baseurl, "params": req.query, });
+		// res.json({ "scrapped": response.data, "base": baseurl, "params": req.query });
+		res.render("../views/searchResult", { "scrapped": response.data, "base": baseurl, "params": req.query, });
 	}).catch(function (error) {
 		// console.error(error);
 	});
