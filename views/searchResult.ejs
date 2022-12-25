@@ -196,7 +196,9 @@
                                     <label for="rooms">Rooms</label>
                                     <input class="form-control form-input" name="room_qty" id="rooms" value="<%=params.room_qty%>">
                                 </div>
-                                <input type="hidden" name="search_id" value="<%=params.search_id%>">
+                                <input type="hidden" name="search_id" id="searchID" class="<%=params.search_id%>"  value="<%=scrapped.search_id%>">
+                                <input type="hidden" name="offset" id="offset" value=""/>
+                                <input type="hidden" class="pn" name="page_number" value='<%=params.page_number%>'>
                                 <datalist id="browsers">
                                 </datalist>
 
@@ -208,7 +210,7 @@
                                         </div>
                                     </div>
                                 </option>
-                                <button class="btn btn-lg btn-primary form-btn" type="submit">
+                                <button class="btn btn-lg btn-primary form-btn" id="update" type="submit">
                                     Update
                                 </button>
                             </form>
@@ -303,9 +305,9 @@
                     </div>
                     <div class="col-md-10">
                         <button class="btn btn-primary form-btn btn-lg pull-left " type="submit"
-                            form="prevpage">Prev</button>
+                            >Prev</button>
                         <button class="btn btn-primary form-btn btn-lg pull-right " type="submit"
-                            form="nextpage">Next</button>
+                            >Next</button>
                     </div>
 
 
@@ -416,7 +418,20 @@
 
     <script>
         $(document).ready(function () {
+            if ($("input.pn").val() == "1") {
+                $(".pull-left").attr("disabled",'true');
+            }
             $("div.item:first-child").addClass("active");
+            $(".pull-left").click(()=>{
+                $("input.pn").val(Number($("input.pn").val())-1)
+                $("#offset").val(20*Number($("input.pn").val()-1));
+                $("#update").click();
+            })
+            $(".pull-right").click(()=>{
+                $("#offset").val(20*Number($("input.pn").val()));
+                $("input.pn").val(Number($("input.pn").val())+1)
+                $("#update").click();
+            })
             $('.search-loc').keydown(function () {
 
                 let category = $(this).attr('id');

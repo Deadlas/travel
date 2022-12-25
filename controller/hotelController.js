@@ -57,7 +57,7 @@ const searchHotels = (req, res) => {
 		method: 'GET',
 		url: 'https://apidojo-booking-v1.p.rapidapi.com/properties/list',
 		params: {
-			offset: '0',
+			offset: req.query.offset,
 			arrival_date: req.query.arrival_date,
 			departure_date: req.query.departure_date,
 			guest_qty: req.query.guest_qty,
